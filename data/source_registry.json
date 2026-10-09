@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Code for America",
+    "provider": "greenhouse",
+    "board_token": "codeforamerica",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/codeforamerica"
+  },
+  {
+    "name": "Skylight",
+    "provider": "greenhouse",
+    "board_token": "skylighthq",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/skylighthq"
+  },
+  {
+    "name": "Recidiviz",
+    "provider": "greenhouse",
+    "board_token": "recidiviz",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/recidiviz"
+  },
+  {
+    "name": "Civitech",
+    "provider": "lever",
+    "site": "civitech",
+    "sector": "Private",
+    "source_url": "https://jobs.lever.co/civitech"
+  },
+  {
+    "name": "Skyward IT Solutions",
+    "provider": "lever",
+    "site": "skywarditsolutions",
+    "sector": "Private",
+    "source_url": "https://jobs.lever.co/skywarditsolutions"
+  }
+]

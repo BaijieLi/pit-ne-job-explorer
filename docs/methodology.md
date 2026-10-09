@@ -31,3 +31,11 @@ Future scraper adapters should only be added for sources that permit collection
 or provide data through approved APIs, feeds, exports, or permissioned handoff.
 Sources that prohibit scraping should be documented and excluded.
 
+The current live-fetch prototype uses company-hosted public ATS endpoints:
+
+- Greenhouse Job Board API for published board postings.
+- Lever Postings API for published public postings.
+
+Generated job CSVs are treated as local outputs because live postings can expire
+and source descriptions may change. The public repository keeps source adapter
+code and source metadata, while generated datasets remain under `outputs/`.

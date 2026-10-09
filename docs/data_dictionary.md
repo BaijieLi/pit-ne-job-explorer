@@ -19,3 +19,5 @@
 | pit_label | `PIT`, `REVIEW`, or `NON_PIT`. |
 | matched_keywords | Pipe-delimited keywords that contributed to the PIT score. |
 
+Live-source adapters preserve the employer-hosted ATS posting URL in `job_url`
+so the Streamlit explorer can render a direct application link.

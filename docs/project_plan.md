@@ -10,7 +10,8 @@
 ## Phase 2: Data Collection
 
 - Review source permissions before adding scraper adapters.
-- Add source-specific collectors only for allowed sources.
+- Add source-specific collectors only for allowed sources. Done for the initial
+  Lever and Greenhouse adapters.
 - Track failed or expired posting links.
 - Store raw data outside Git.
 
@@ -23,7 +24,9 @@
 
 ## Phase 4: Job Explorer
 
-- Expand the Streamlit explorer.
+- Expand the Streamlit explorer with filters for domain, location type,
+  experience level, employer, PIT label, and sector. Done.
+- Include direct links to original postings. Done.
 - Add screenshots using synthetic or share-approved data. Done for synthetic
   explorer preview.
 - Add methodology and source-disclaimer pages.

@@ -1,14 +1,16 @@
 # Resume Bullets
 
-Use the version that best matches the role. This public repository uses
-synthetic examples, so resume wording should emphasize the reusable pipeline,
-classification logic, explorer interface, and data governance decisions.
+Use the version that best matches the role. This public repository keeps
+generated job snapshots out of Git, so resume wording should emphasize the
+public ATS ingestion layer, reusable pipeline, classification logic, explorer
+interface, and data governance decisions.
 
 ## Software Engineering Version
 
-- Built a Python and Streamlit job explorer that normalizes job postings,
-  deduplicates records, classifies Public Interest Technology relevance, and
-  exposes searchable filters for domain, sector, level, and location type.
+- Built a Python and Streamlit job explorer that fetches real public postings
+  from company-hosted ATS boards, normalizes job data, classifies Public
+  Interest Technology relevance, and exposes searchable filters with direct
+  application links.
 - Designed modular pipeline components for schema normalization, rule-based
   classification, summary exports, and interactive exploration, with 9
   automated tests covering the core data flow.
@@ -17,9 +19,9 @@ classification logic, explorer interface, and data governance decisions.
 
 ## Data Engineering Version
 
-- Created a reusable job-posting ETL pipeline that standardizes raw exports,
-  removes duplicates, assigns PIT relevance labels, and produces classified job
-  and summary CSV outputs.
+- Created a reusable job-posting ETL pipeline that ingests public Greenhouse and
+  Lever postings, standardizes raw exports, removes duplicates, assigns PIT
+  relevance labels, and produces classified job and summary CSV outputs.
 - Developed transparent scoring rules using public-interest, technology,
   governance, sector, and commercial-language signals, preserving matched
   keywords for auditability.
@@ -40,8 +42,8 @@ classification logic, explorer interface, and data governance decisions.
 ## Short Project Description
 
 Python data pipeline and Streamlit explorer for collecting, cleaning,
-classifying, and visualizing Public Interest Technology job postings with a
-public-safe synthetic demo dataset.
+classifying, and visualizing Public Interest Technology job postings from
+public company ATS boards with direct links to original applications.
 
 ## Technical Keywords
 

@@ -3,7 +3,8 @@
 ## Pipeline Overview
 
 ```text
-source export or scraper output
+public ATS boards or CSV source data
+  -> source adapters
   -> normalize job fields
   -> deduplicate postings
   -> classify PIT relevance
@@ -19,6 +20,13 @@ source export or scraper output
 Maps varied input column names into a canonical job-posting schema. This layer
 also infers basic fields such as location type, experience level, sector, and
 domain when source data does not provide them.
+
+### Source Adapters
+
+Fetches public postings from configured Greenhouse and Lever boards, preserving
+the original employer-hosted posting link in `job_url`. Each source is listed in
+`data/source_registry.json` so new employers can be reviewed and added without
+changing the parsing code.
 
 ### Deduplication
 
@@ -39,7 +47,12 @@ updates.
 
 ### Explorer
 
-The Streamlit app provides search and filters over classified jobs. It is a
-public-facing prototype and should use synthetic, permissioned, or reviewed data
-only.
+The Streamlit app provides search, category filters, and clickable application
+links over classified jobs. It is a public-facing prototype and should use
+synthetic, permissioned, or reviewed public-source data only.
 
+## Data Storage
+
+Generated outputs are written to `outputs/`, which is ignored by Git. This keeps
+local live-job snapshots separate from the public repository while allowing the
+job board to run locally with fresh data.
