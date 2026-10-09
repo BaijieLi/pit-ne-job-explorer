@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments
+.env
+.envrc
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Notebooks and local caches
+.ipynb_checkpoints/
+.DS_Store
+
+# Project data policy
+data/raw/
+data/private/
+outputs/
+reports/private/
+

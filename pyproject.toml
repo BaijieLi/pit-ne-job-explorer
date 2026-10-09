@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pit-ne-job-explorer"
+version = "0.1.0"
+description = "Pipeline and explorer for collecting, classifying, and visualizing Public Interest Technology job postings."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.2.0",
+  "streamlit>=1.36.0",
+]
+
+[project.scripts]
+pit-ne-jobs = "pit_ne_job_explorer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
