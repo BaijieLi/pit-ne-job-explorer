@@ -2,10 +2,10 @@
 
 ## Phase 1: Public Scaffold
 
-- Create a clean repository structure.
-- Add synthetic example data.
-- Implement normalization, deduplication, classification, and analysis.
-- Add tests for the core pipeline.
+- Create a clean repository structure. Done.
+- Add synthetic example data. Done.
+- Implement normalization, deduplication, classification, and analysis. Done.
+- Add tests for the core pipeline. Done.
 
 ## Phase 2: Data Collection
 
@@ -27,4 +27,4 @@
 - Add screenshots using synthetic or share-approved data. Done for synthetic
   explorer preview.
 - Add methodology and source-disclaimer pages.
-- Prepare resume bullets and portfolio summary.
+- Prepare resume bullets and portfolio summary. Done.

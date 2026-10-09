@@ -22,6 +22,21 @@ not been reviewed for sharing.
 
 ![PIT-NE Job Explorer Preview](docs/assets/job_explorer_preview.png)
 
+## Portfolio Snapshot
+
+The current synthetic demo processes 10 public-safe job postings, classifies 8
+as `PIT` and 2 as `NON_PIT`, and summarizes roles across 6 inferred domains.
+The project includes 9 automated tests covering normalization, deduplication,
+classification, analysis, and CLI exports.
+
+## Portfolio Materials
+
+- `docs/methodology.md`: working PIT definition, classification rules, and
+  source policy.
+- `docs/data_dictionary.md`: canonical job-posting schema.
+- `docs/architecture.md`: pipeline design and component responsibilities.
+- `docs/resume_bullets.md`: role-specific resume bullet options.
+
 ## Tech Stack
 
 - Python 3.10+
@@ -73,8 +88,8 @@ Next planned steps:
 
 1. Add scraper adapters only for sources that allow collection.
 2. Add a reviewed coding guide and label audit workflow.
-3. Add dashboard screenshots using synthetic or share-approved data.
-4. Add resume bullets and final portfolio polish.
+3. Add real-source adapters for permissioned or API-accessible job boards.
+4. Add label-quality metrics from a reviewed sample set.
 
 ## Repository Structure
 
@@ -89,7 +104,8 @@ Next planned steps:
 │   ├── architecture.md
 │   ├── data_dictionary.md
 │   ├── methodology.md
-│   └── project_plan.md
+│   ├── project_plan.md
+│   └── resume_bullets.md
 ├── scripts/
 │   └── run_sample_pipeline.py
 ├── src/
@@ -143,3 +159,11 @@ back to the synthetic example dataset.
 
 Raw scraped data, private project documents, and generated outputs are excluded
 from Git. Public examples should be synthetic, permissioned, or aggregated.
+
+## Current Limitations
+
+- The public demo dataset is synthetic and intentionally small.
+- PIT classification is rule-based and should be reviewed before use with real
+  postings.
+- Scraper adapters should only be added for sources that permit collection or
+  provide approved APIs, feeds, exports, or permissioned data handoff.
