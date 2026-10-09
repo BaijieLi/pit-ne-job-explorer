@@ -20,6 +20,8 @@ not been reviewed for sharing.
 - Includes a lightweight Streamlit explorer for search and filtering.
 - Uses synthetic example data so the public repository is safe to share.
 
+![PIT-NE Job Explorer Preview](docs/assets/job_explorer_preview.png)
+
 ## Tech Stack
 
 - Python 3.10+
@@ -141,4 +143,3 @@ back to the synthetic example dataset.
 
 Raw scraped data, private project documents, and generated outputs are excluded
 from Git. Public examples should be synthetic, permissioned, or aggregated.
-

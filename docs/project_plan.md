@@ -24,7 +24,7 @@
 ## Phase 4: Job Explorer
 
 - Expand the Streamlit explorer.
-- Add screenshots using synthetic or share-approved data.
+- Add screenshots using synthetic or share-approved data. Done for synthetic
+  explorer preview.
 - Add methodology and source-disclaimer pages.
 - Prepare resume bullets and portfolio summary.
-
