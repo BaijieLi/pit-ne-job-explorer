@@ -43,6 +43,7 @@ deduplication, classification, analysis, and CLI exports.
 - `docs/methodology.md`: working PIT definition, classification rules, and
   source policy.
 - `docs/source_registry.md`: curated list of public job-board sources.
+- `docs/deployment.md`: Streamlit Community Cloud deployment settings.
 - `docs/data_dictionary.md`: canonical job-posting schema.
 - `docs/architecture.md`: pipeline design and component responsibilities.
 - `docs/resume_bullets.md`: role-specific resume bullet options.
@@ -119,6 +120,7 @@ Next planned steps:
 ├── docs/
 │   ├── architecture.md
 │   ├── data_dictionary.md
+│   ├── deployment.md
 │   ├── methodology.md
 │   ├── project_plan.md
 │   ├── resume_bullets.md
@@ -174,12 +176,19 @@ PYTHONPATH=src python -m pit_ne_job_explorer.cli \
 Launch the explorer:
 
 ```bash
-PYTHONPATH=src streamlit run app/streamlit_app.py
+streamlit run app/streamlit_app.py
 ```
 
 The Streamlit app reads `outputs/classified_jobs.csv` when available and falls
-back to the synthetic example dataset. After running `scripts/fetch_live_jobs.py`,
-the explorer shows real public postings with clickable apply links.
+back to live public ATS sources from `data/source_registry.json`. If live fetch
+fails, it uses the synthetic example dataset. After running
+`scripts/fetch_live_jobs.py`, the explorer shows the local generated CSV output.
+
+## Deploy
+
+This repository is ready for Streamlit Community Cloud. Use
+`app/streamlit_app.py` as the main file path. See `docs/deployment.md` for the
+exact deployment settings.
 
 ## Data Policy
 

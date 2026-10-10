@@ -3,32 +3,71 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import pandas as pd
 import streamlit as st
 
+ROOT_DIR = Path(__file__).resolve().parents[1]
+SRC_DIR = ROOT_DIR / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
 from pit_ne_job_explorer.classification import classify_records
 from pit_ne_job_explorer.normalization import deduplicate_records, normalize_records
+from pit_ne_job_explorer.sources import collect_jobs_with_errors, load_source_registry
 
 
 DEFAULT_OUTPUT = Path("outputs/classified_jobs.csv")
 DEFAULT_EXAMPLE = Path("data/examples/synthetic_job_postings.csv")
+DEFAULT_SOURCE_REGISTRY = Path("data/source_registry.json")
 
 
 st.set_page_config(page_title="PIT-NE Job Explorer", layout="wide")
 
 
-@st.cache_data
-def load_jobs() -> pd.DataFrame:
-    source = DEFAULT_OUTPUT if DEFAULT_OUTPUT.exists() else DEFAULT_EXAMPLE
-    raw = pd.read_csv(source)
-    records = classify_records(deduplicate_records(normalize_records(raw.to_dict("records"))))
+def _classify_rows(rows: list[dict[str, object]]) -> pd.DataFrame:
+    records = classify_records(deduplicate_records(normalize_records(rows)))
     return pd.DataFrame(records)
 
 
-jobs = load_jobs()
+@st.cache_data(ttl=6 * 60 * 60, show_spinner="Fetching live public job postings...")
+def load_jobs() -> tuple[pd.DataFrame, str, list[str]]:
+    errors: list[str] = []
+    if DEFAULT_OUTPUT.exists():
+        raw = pd.read_csv(DEFAULT_OUTPUT)
+        return (
+            _classify_rows(raw.to_dict("records")),
+            f"Loaded local live output from {DEFAULT_OUTPUT}",
+            errors,
+        )
+
+    if DEFAULT_SOURCE_REGISTRY.exists():
+        try:
+            sources = load_source_registry(DEFAULT_SOURCE_REGISTRY)
+            rows, errors = collect_jobs_with_errors(sources)
+            if rows:
+                source_count = len(sources) - len(errors)
+                return (
+                    _classify_rows(rows),
+                    f"Fetched {len(rows):,} live postings from {source_count}/{len(sources)} public ATS sources",
+                    errors,
+                )
+        except Exception as exc:
+            errors.append(f"Live fetch failed: {exc}")
+
+    raw = pd.read_csv(DEFAULT_EXAMPLE)
+    return _classify_rows(raw.to_dict("records")), "Loaded synthetic fallback dataset", errors
+
+
+jobs, data_source, load_errors = load_jobs()
 
 st.title("PIT-NE Job Explorer")
+st.caption(data_source)
+if load_errors:
+    with st.expander("Source warnings"):
+        for error in load_errors:
+            st.write(error)
 
 label_options = sorted(jobs["pit_label"].dropna().unique())
 employer_options = sorted(jobs["employer"].dropna().unique())
