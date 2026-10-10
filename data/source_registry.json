@@ -152,5 +152,145 @@
     "board_token": "civisanalytics",
     "sector": "Private",
     "source_url": "https://job-boards.greenhouse.io/civisanalytics"
+  },
+  {
+    "name": "ACLU",
+    "provider": "greenhouse",
+    "board_token": "aclu",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/aclu"
+  },
+  {
+    "name": "Vera Institute of Justice",
+    "provider": "greenhouse",
+    "board_token": "verainstituteofjustice",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/verainstituteofjustice"
+  },
+  {
+    "name": "Human Rights Watch",
+    "provider": "greenhouse",
+    "board_token": "humanrightswatch",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/humanrightswatch"
+  },
+  {
+    "name": "Dimagi",
+    "provider": "greenhouse",
+    "board_token": "dimagi",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/dimagi"
+  },
+  {
+    "name": "New Incentives",
+    "provider": "breezy",
+    "subdomain": "new-incentives",
+    "sector": "Nonprofit",
+    "source_url": "https://new-incentives.breezy.hr/"
+  },
+  {
+    "name": "GovWell",
+    "provider": "ashby",
+    "board_token": "govwell",
+    "sector": "Private",
+    "source_url": "https://jobs.ashbyhq.com/govwell"
+  },
+  {
+    "name": "OpenGov",
+    "provider": "ashby",
+    "board_token": "opengov",
+    "sector": "Private",
+    "source_url": "https://jobs.ashbyhq.com/opengov"
+  },
+  {
+    "name": "Accela",
+    "provider": "greenhouse",
+    "board_token": "accela",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/accela"
+  },
+  {
+    "name": "Polimorphic",
+    "provider": "ashby",
+    "board_token": "polimorphic",
+    "sector": "Private",
+    "source_url": "https://jobs.ashbyhq.com/polimorphic"
+  },
+  {
+    "name": "ClearGov",
+    "provider": "greenhouse",
+    "board_token": "cleargov",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/cleargov"
+  },
+  {
+    "name": "Planet Labs",
+    "provider": "greenhouse",
+    "board_token": "planetlabs",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/planetlabs"
+  },
+  {
+    "name": "Mapbox",
+    "provider": "ashby",
+    "board_token": "mapbox",
+    "sector": "Private",
+    "source_url": "https://jobs.ashbyhq.com/mapbox"
+  },
+  {
+    "name": "Esri",
+    "provider": "greenhouse",
+    "board_token": "esri",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/esri"
+  },
+  {
+    "name": "EnergyHub",
+    "provider": "greenhouse",
+    "board_token": "energyhub",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/energyhub"
+  },
+  {
+    "name": "Voltus",
+    "provider": "lever",
+    "site": "voltus",
+    "sector": "Private",
+    "source_url": "https://jobs.lever.co/voltus"
+  },
+  {
+    "name": "Watershed",
+    "provider": "ashby",
+    "board_token": "watershed",
+    "sector": "Private",
+    "source_url": "https://jobs.ashbyhq.com/watershed"
+  },
+  {
+    "name": "Arcadia",
+    "provider": "lever",
+    "site": "arcadia",
+    "sector": "Private",
+    "source_url": "https://jobs.lever.co/arcadia"
+  },
+  {
+    "name": "VotingWorks",
+    "provider": "breezy",
+    "subdomain": "votingworks",
+    "sector": "Nonprofit",
+    "source_url": "https://votingworks.breezy.hr/"
+  },
+  {
+    "name": "VoteAmerica",
+    "provider": "breezy",
+    "subdomain": "voteamerica",
+    "sector": "Nonprofit",
+    "source_url": "https://voteamerica.breezy.hr/"
+  },
+  {
+    "name": "Khan Academy",
+    "provider": "greenhouse",
+    "board_token": "khanacademy",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/khanacademy"
   }
 ]

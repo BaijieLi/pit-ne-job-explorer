@@ -17,8 +17,8 @@ not been reviewed for sharing.
   and sector rules.
 - Produces summary metrics by PIT label, domain, sector, experience level, and
   location type.
-- Fetches real public postings from company-hosted Greenhouse, Lever, and
-  Breezy job boards, preserving direct apply links.
+- Fetches real public postings from company-hosted Greenhouse, Lever, Breezy,
+  and Ashby job boards, preserving direct apply links.
 - Includes a lightweight Streamlit explorer for search, filtering, and clickable
   posting links.
 - Keeps generated job datasets out of Git so the public repository is safe to
@@ -30,11 +30,12 @@ not been reviewed for sharing.
 
 The committed synthetic demo processes 10 public-safe job postings, classifies
 8 as `PIT` and 2 as `NON_PIT`, and summarizes roles across 6 inferred domains.
-A live source registry currently targets 22 public ATS boards from civic-tech,
-public-interest, digital-rights, nonprofit, and gov-tech-adjacent employers.
-Local validation on 2026-10-09 fetched 269 public postings with direct source
-links, classifying 202 as `PIT`, 47 as `REVIEW`, and 20 as `NON_PIT`. The
-project includes 13 automated tests covering source adapters, normalization,
+A live source registry currently targets 42 public ATS boards from civic-tech,
+public-interest, digital-rights, nonprofit, gov-tech, climate-tech, geospatial,
+and education-access employers. Local validation on 2026-10-09 fetched 1,140
+public postings with direct source links, classifying 935 as `PIT`, 150 as
+`REVIEW`, and 55 as `NON_PIT`. The
+project includes 14 automated tests covering source adapters, normalization,
 deduplication, classification, analysis, and CLI exports.
 
 ## Portfolio Materials
@@ -90,7 +91,7 @@ CSV outputs + searchable job explorer
 This first public version includes:
 
 - synthetic job posting dataset
-- public Greenhouse, Lever, and Breezy source adapters
+- public Greenhouse, Lever, Breezy, and Ashby source adapters
 - real-job fetch script with direct source posting links
 - normalization and deduplication logic
 - rule-based PIT classification

@@ -97,7 +97,7 @@ st.dataframe(
             "job_url",
         ]
     ],
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "job_url": st.column_config.LinkColumn("Apply link", display_text="Open posting"),

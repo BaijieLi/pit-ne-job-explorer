@@ -3,7 +3,8 @@
 The live job-board prototype uses public, employer-hosted ATS boards. These
 sources were selected because they are adjacent to civic technology, public
 interest technology, digital rights, open knowledge, nonprofit technology,
-government service delivery, or social-impact data work.
+government service delivery, climate technology, geospatial infrastructure,
+education access, or social-impact data work.
 
 Generated snapshots are kept in `outputs/` and are not committed because live
 postings can expire.
@@ -32,3 +33,23 @@ postings can expire.
 | Chan Zuckerberg Initiative | Greenhouse | Nonprofit | Science, education, and social-impact technology. |
 | Omidyar Network | Greenhouse | Nonprofit | Responsible technology and social impact. |
 | Civis Analytics | Greenhouse | Private | Data science for civic, nonprofit, and public-sector work. |
+| ACLU | Greenhouse | Nonprofit | Civil rights, digital liberties, and public-interest advocacy. |
+| Vera Institute of Justice | Greenhouse | Nonprofit | Justice reform, policy, research, and public systems work. |
+| Human Rights Watch | Greenhouse | Nonprofit | Human rights research, advocacy, and technology-adjacent accountability work. |
+| Dimagi | Greenhouse | Private | Global health technology and digital public-service delivery. |
+| New Incentives | Breezy | Nonprofit | Evidence-based health programs and social-impact operations. |
+| GovWell | Ashby | Private | AI-enabled local government service delivery. |
+| OpenGov | Ashby | Private | Public-sector ERP, budgeting, procurement, and open data technology. |
+| Accela | Greenhouse | Private | Government permitting, licensing, and civic-service software. |
+| Polimorphic | Ashby | Private | AI-powered CRM and service tools for local government. |
+| ClearGov | Greenhouse | Private | Local government budgeting, transparency, and civic data tools. |
+| Planet Labs | Greenhouse | Private | Satellite imagery and geospatial data for climate, emergency response, and public-sector work. |
+| Mapbox | Ashby | Private | Location technology used in transportation, public services, and civic mapping. |
+| Esri | Greenhouse | Private | GIS infrastructure for government, public health, environment, and disaster response. |
+| EnergyHub | Greenhouse | Private | Distributed energy resources and grid flexibility technology. |
+| Voltus | Lever | Private | Energy-market software and demand response infrastructure. |
+| Watershed | Ashby | Private | Climate data, emissions accounting, and sustainability workflows. |
+| Arcadia | Lever | Private | Clean-energy data and utility-data infrastructure. |
+| VotingWorks | Breezy | Nonprofit | Election administration and voting-system technology. |
+| VoteAmerica | Breezy | Nonprofit | Voter access and civic participation technology. |
+| Khan Academy | Greenhouse | Nonprofit | Education access and learning technology. |

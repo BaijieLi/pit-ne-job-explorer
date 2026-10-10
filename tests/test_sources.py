@@ -1,4 +1,5 @@
 from pit_ne_job_explorer.sources import (
+    parse_ashby_posting,
     parse_breezy_posting,
     parse_greenhouse_posting,
     parse_lever_posting,
@@ -73,6 +74,30 @@ def test_parse_breezy_posting_preserves_remote_location_and_link():
     assert row["country"] == "United States"
     assert row["domain"] == "Executive Team"
     assert row["job_url"].endswith("/abc")
+
+
+def test_parse_ashby_posting_preserves_workplace_type_and_link():
+    source = {"name": "GovWell", "sector": "Private"}
+    posting = {
+        "title": "AI Product Engineer",
+        "department": "Product & Engineering",
+        "location": "New York, NY",
+        "publishedAt": "2026-02-24T15:56:14.236+00:00",
+        "isRemote": True,
+        "workplaceType": "Hybrid",
+        "address": {"postalAddress": {"addressCountry": "United States"}},
+        "jobUrl": "https://jobs.ashbyhq.com/govwell/abc",
+        "descriptionHtml": "<p>AI for local government services.</p>",
+    }
+
+    row = parse_ashby_posting(source, posting)
+
+    assert row["employer"] == "GovWell"
+    assert row["job_url"] == "https://jobs.ashbyhq.com/govwell/abc"
+    assert row["location_type"] == "Hybrid"
+    assert row["country"] == "United States"
+    assert row["domain"] == "Product & Engineering"
+    assert row["description"] == "AI for local government services."
 
 
 def test_strip_html_normalizes_entities_and_spacing():

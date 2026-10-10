@@ -11,7 +11,7 @@
 
 - Review source permissions before adding scraper adapters.
 - Add source-specific collectors only for allowed sources. Done for the initial
-  Greenhouse, Lever, and Breezy adapters.
+  Greenhouse, Lever, Breezy, and Ashby adapters.
 - Track failed or expired posting links.
 - Store raw data outside Git.
 

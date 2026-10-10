@@ -36,7 +36,22 @@ The current live-fetch prototype uses company-hosted public ATS endpoints:
 - Greenhouse Job Board API for published board postings.
 - Lever Postings API for published public postings.
 - Breezy public JSON boards for published public postings.
+- Ashby public job-board API for published public postings.
 
 Generated job CSVs are treated as local outputs because live postings can expire
 and source descriptions may change. The public repository keeps source adapter
 code and source metadata, while generated datasets remain under `outputs/`.
+
+## Search Discovery Note
+
+General web-search APIs are better suited for discovering possible source boards
+than for powering the job dataset itself. Google Cloud Talent Solution is meant
+to search over a job corpus that an application has already created or indexed,
+not to export every public job on Google. Google Programmable Search / Custom
+Search can return web search results for queries, but it requires a search
+engine ID and API key, has result limits, and does not provide a complete,
+structured job-posting corpus.
+
+For that reason, this project treats search as a possible future discovery
+layer, while the production-style ingestion path uses employer-hosted ATS
+endpoints that return structured public postings with direct application links.

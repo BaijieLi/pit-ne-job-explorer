@@ -162,6 +162,40 @@ def parse_breezy_posting(source: Mapping[str, str], posting: Mapping[str, object
     }
 
 
+def parse_ashby_posting(source: Mapping[str, str], posting: Mapping[str, object]) -> dict[str, str]:
+    address = posting.get("address") or {}
+    if not isinstance(address, Mapping):
+        address = {}
+    postal_address = address.get("postalAddress") or {}
+    if not isinstance(postal_address, Mapping):
+        postal_address = {}
+
+    workplace_type = str(posting.get("workplaceType", "") or "").lower()
+    if workplace_type == "remote":
+        location_type = "Remote"
+    elif workplace_type == "hybrid":
+        location_type = "Hybrid"
+    elif workplace_type in {"onsite", "on-site"}:
+        location_type = "In-Person"
+    else:
+        location_type = "Remote" if posting.get("isRemote") is True else ""
+
+    return {
+        "title": str(posting.get("title", "") or ""),
+        "employer": source["name"],
+        "location": str(posting.get("location", "") or ""),
+        "country": str(postal_address.get("addressCountry", "") or ""),
+        "source": f"Ashby: {source['name']}",
+        "job_url": str(posting.get("jobUrl") or posting.get("applyUrl") or ""),
+        "description": strip_html(posting.get("descriptionHtml", "")),
+        "date_posted": str(posting.get("publishedAt", "") or ""),
+        "location_type": location_type,
+        "experience_level": "",
+        "sector": str(source.get("sector", "") or ""),
+        "domain": str(posting.get("department") or posting.get("team") or ""),
+    }
+
+
 def fetch_lever_source(source: Mapping[str, str]) -> list[dict[str, str]]:
     site = urllib.parse.quote(source["site"])
     url = f"https://api.lever.co/v0/postings/{site}?mode=json"
@@ -189,6 +223,15 @@ def fetch_breezy_source(source: Mapping[str, str]) -> list[dict[str, str]]:
     return [parse_breezy_posting(source, posting) for posting in payload]
 
 
+def fetch_ashby_source(source: Mapping[str, str]) -> list[dict[str, str]]:
+    board = urllib.parse.quote(source["board_token"])
+    url = f"https://api.ashbyhq.com/posting-api/job-board/{board}?includeCompensation=true"
+    payload = fetch_json(url)
+    if not isinstance(payload, Mapping) or not isinstance(payload.get("jobs"), list):
+        raise SourceFetchError(f"Ashby source {source['name']} returned unexpected JSON")
+    return [parse_ashby_posting(source, posting) for posting in payload["jobs"]]
+
+
 def fetch_source(source: Mapping[str, str]) -> list[dict[str, str]]:
     provider = source.get("provider")
     if provider == "lever":
@@ -197,6 +240,8 @@ def fetch_source(source: Mapping[str, str]) -> list[dict[str, str]]:
         return fetch_greenhouse_source(source)
     if provider == "breezy":
         return fetch_breezy_source(source)
+    if provider == "ashby":
+        return fetch_ashby_source(source)
     raise SourceFetchError(f"Unsupported provider for {source.get('name')}: {provider}")
 
 

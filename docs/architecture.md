@@ -23,10 +23,10 @@ domain when source data does not provide them.
 
 ### Source Adapters
 
-Fetches public postings from configured Greenhouse, Lever, and Breezy boards,
-preserving the original employer-hosted posting link in `job_url`. Each source
-is listed in `data/source_registry.json` so new employers can be reviewed and
-added without changing the parsing code.
+Fetches public postings from configured Greenhouse, Lever, Breezy, and Ashby
+boards, preserving the original employer-hosted posting link in `job_url`. Each
+source is listed in `data/source_registry.json` so new employers can be reviewed
+and added without changing the parsing code.
 
 ### Deduplication
 
