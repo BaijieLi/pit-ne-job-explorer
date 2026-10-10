@@ -129,6 +129,39 @@ def parse_greenhouse_posting(
     }
 
 
+def parse_breezy_posting(source: Mapping[str, str], posting: Mapping[str, object]) -> dict[str, str]:
+    location = posting.get("location") or {}
+    if not isinstance(location, Mapping):
+        location = {}
+    location_name = str(location.get("name", "") or "")
+    country = location.get("country") or {}
+    if not isinstance(country, Mapping):
+        country = {}
+
+    description_parts = [
+        posting.get("description"),
+        posting.get("summary"),
+        posting.get("department"),
+    ]
+    description = " ".join(strip_html(part) for part in description_parts if part)
+    is_remote = location.get("is_remote") is True
+
+    return {
+        "title": str(posting.get("name", "") or ""),
+        "employer": str((posting.get("company") or {}).get("name") or source["name"]),
+        "location": location_name,
+        "country": str(country.get("name", "") or ""),
+        "source": f"Breezy: {source['name']}",
+        "job_url": str(posting.get("url", "") or source.get("source_url", "")),
+        "description": description,
+        "date_posted": str(posting.get("published_date", "") or ""),
+        "location_type": "Remote" if is_remote else "",
+        "experience_level": "",
+        "sector": str(source.get("sector", "") or ""),
+        "domain": str(posting.get("department", "") or ""),
+    }
+
+
 def fetch_lever_source(source: Mapping[str, str]) -> list[dict[str, str]]:
     site = urllib.parse.quote(source["site"])
     url = f"https://api.lever.co/v0/postings/{site}?mode=json"
@@ -147,12 +180,23 @@ def fetch_greenhouse_source(source: Mapping[str, str]) -> list[dict[str, str]]:
     return [parse_greenhouse_posting(source, posting) for posting in payload["jobs"]]
 
 
+def fetch_breezy_source(source: Mapping[str, str]) -> list[dict[str, str]]:
+    subdomain = urllib.parse.quote(source["subdomain"])
+    url = f"https://{subdomain}.breezy.hr/json"
+    payload = fetch_json(url)
+    if not isinstance(payload, list):
+        raise SourceFetchError(f"Breezy source {source['name']} returned non-list JSON")
+    return [parse_breezy_posting(source, posting) for posting in payload]
+
+
 def fetch_source(source: Mapping[str, str]) -> list[dict[str, str]]:
     provider = source.get("provider")
     if provider == "lever":
         return fetch_lever_source(source)
     if provider == "greenhouse":
         return fetch_greenhouse_source(source)
+    if provider == "breezy":
+        return fetch_breezy_source(source)
     raise SourceFetchError(f"Unsupported provider for {source.get('name')}: {provider}")
 
 
@@ -161,3 +205,16 @@ def collect_jobs(sources: Iterable[Mapping[str, str]]) -> list[dict[str, str]]:
     for source in sources:
         rows.extend(fetch_source(source))
     return rows
+
+
+def collect_jobs_with_errors(
+    sources: Iterable[Mapping[str, str]],
+) -> tuple[list[dict[str, str]], list[str]]:
+    rows: list[dict[str, str]] = []
+    errors: list[str] = []
+    for source in sources:
+        try:
+            rows.extend(fetch_source(source))
+        except SourceFetchError as exc:
+            errors.append(str(exc))
+    return rows, errors

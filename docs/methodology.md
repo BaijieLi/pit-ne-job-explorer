@@ -35,6 +35,7 @@ The current live-fetch prototype uses company-hosted public ATS endpoints:
 
 - Greenhouse Job Board API for published board postings.
 - Lever Postings API for published public postings.
+- Breezy public JSON boards for published public postings.
 
 Generated job CSVs are treated as local outputs because live postings can expire
 and source descriptions may change. The public repository keeps source adapter

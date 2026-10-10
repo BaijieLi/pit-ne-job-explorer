@@ -1,4 +1,5 @@
 from pit_ne_job_explorer.sources import (
+    parse_breezy_posting,
     parse_greenhouse_posting,
     parse_lever_posting,
     strip_html,
@@ -48,6 +49,30 @@ def test_parse_greenhouse_posting_strips_html_and_keeps_source_url():
     assert row["job_url"].endswith("/123")
     assert row["description"] == "Responsible AI & policy for public services."
     assert row["domain"] == "Technology"
+
+
+def test_parse_breezy_posting_preserves_remote_location_and_link():
+    source = {"name": "U.S. Digital Response", "sector": "Nonprofit"}
+    posting = {
+        "name": "Chief Technology Officer",
+        "url": "https://us-digital-response.breezy.hr/p/abc",
+        "published_date": "2026-09-22T18:43:03.474Z",
+        "department": "Executive Team",
+        "location": {
+            "name": "United States",
+            "is_remote": True,
+            "country": {"name": "United States"},
+        },
+        "company": {"name": "U.S. Digital Response"},
+    }
+
+    row = parse_breezy_posting(source, posting)
+
+    assert row["employer"] == "U.S. Digital Response"
+    assert row["location_type"] == "Remote"
+    assert row["country"] == "United States"
+    assert row["domain"] == "Executive Team"
+    assert row["job_url"].endswith("/abc")
 
 
 def test_strip_html_normalizes_entities_and_spacing():

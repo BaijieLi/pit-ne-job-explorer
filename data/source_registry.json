@@ -33,5 +33,124 @@
     "site": "skywarditsolutions",
     "sector": "Private",
     "source_url": "https://jobs.lever.co/skywarditsolutions"
+  },
+  {
+    "name": "Nava PBC",
+    "provider": "greenhouse",
+    "board_token": "navapbc",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/navapbc"
+  },
+  {
+    "name": "Mozilla",
+    "provider": "greenhouse",
+    "board_token": "mozilla",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/mozilla"
+  },
+  {
+    "name": "Mozilla Foundation",
+    "provider": "greenhouse",
+    "board_token": "mozillafoundation",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/mozillafoundation"
+  },
+  {
+    "name": "Wikimedia Foundation",
+    "provider": "greenhouse",
+    "board_token": "wikimedia",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/wikimedia"
+  },
+  {
+    "name": "U.S. Digital Response",
+    "provider": "breezy",
+    "subdomain": "us-digital-response",
+    "sector": "Nonprofit",
+    "source_url": "https://us-digital-response.breezy.hr/"
+  },
+  {
+    "name": "Oddball",
+    "provider": "greenhouse",
+    "board_token": "oddball",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/oddball"
+  },
+  {
+    "name": "ProPublica",
+    "provider": "greenhouse",
+    "board_token": "propublica",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/propublica"
+  },
+  {
+    "name": "Consumer Reports",
+    "provider": "greenhouse",
+    "board_token": "consumerreports",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/consumerreports"
+  },
+  {
+    "name": "Common Cause",
+    "provider": "lever",
+    "site": "commoncause",
+    "sector": "Nonprofit",
+    "source_url": "https://jobs.lever.co/commoncause"
+  },
+  {
+    "name": "ActBlue",
+    "provider": "greenhouse",
+    "board_token": "actblue",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/actblue"
+  },
+  {
+    "name": "CodePath",
+    "provider": "greenhouse",
+    "board_token": "codepath",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/codepath"
+  },
+  {
+    "name": "Code.org",
+    "provider": "greenhouse",
+    "board_token": "codeorg",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/codeorg"
+  },
+  {
+    "name": "GiveDirectly",
+    "provider": "greenhouse",
+    "board_token": "givedirectly",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/givedirectly"
+  },
+  {
+    "name": "GiveWell",
+    "provider": "greenhouse",
+    "board_token": "givewell",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/givewell"
+  },
+  {
+    "name": "Chan Zuckerberg Initiative",
+    "provider": "greenhouse",
+    "board_token": "chanzuckerberginitiative",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/chanzuckerberginitiative"
+  },
+  {
+    "name": "Omidyar Network",
+    "provider": "greenhouse",
+    "board_token": "omidyarnetwork",
+    "sector": "Nonprofit",
+    "source_url": "https://job-boards.greenhouse.io/omidyarnetwork"
+  },
+  {
+    "name": "Civis Analytics",
+    "provider": "greenhouse",
+    "board_token": "civisanalytics",
+    "sector": "Private",
+    "source_url": "https://job-boards.greenhouse.io/civisanalytics"
   }
 ]

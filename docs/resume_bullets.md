@@ -19,9 +19,10 @@ interface, and data governance decisions.
 
 ## Data Engineering Version
 
-- Created a reusable job-posting ETL pipeline that ingests public Greenhouse and
-  Lever postings, standardizes raw exports, removes duplicates, assigns PIT
-  relevance labels, and produces classified job and summary CSV outputs.
+- Created a reusable job-posting ETL pipeline that ingests public Greenhouse,
+  Lever, and Breezy postings, standardizes raw exports, removes duplicates,
+  assigns PIT relevance labels, and produces classified job and summary CSV
+  outputs.
 - Developed transparent scoring rules using public-interest, technology,
   governance, sector, and commercial-language signals, preserving matched
   keywords for auditability.

@@ -6,7 +6,11 @@ import argparse
 from pathlib import Path
 
 from pit_ne_job_explorer.cli import run, write_csv
-from pit_ne_job_explorer.sources import SOURCE_FIELDS, collect_jobs, load_source_registry
+from pit_ne_job_explorer.sources import (
+    SOURCE_FIELDS,
+    collect_jobs_with_errors,
+    load_source_registry,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -39,10 +43,18 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     sources = load_source_registry(args.sources)
-    rows = collect_jobs(sources)
+    rows, errors = collect_jobs_with_errors(sources)
+    for error in errors:
+        print(f"Warning: {error}")
+    if not rows:
+        raise SystemExit("No postings were fetched from the configured sources.")
     write_csv(args.raw_output, rows, SOURCE_FIELDS)
     count = run(args.raw_output, args.jobs_output, args.summary_output)
-    print(f"Fetched {len(rows)} public posting(s) from {len(sources)} source(s).")
+    successful_sources = len(sources) - len(errors)
+    print(
+        f"Fetched {len(rows)} public posting(s) from "
+        f"{successful_sources}/{len(sources)} source(s)."
+    )
     print(f"Wrote {count} classified job row(s) to {Path(args.jobs_output)}")
     print(f"Wrote summary metrics to {Path(args.summary_output)}")
     return 0
